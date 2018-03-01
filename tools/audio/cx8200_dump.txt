@@ -1,0 +1,38 @@
+
+Verbs from Linux Codec Dump File: /Users/kaneve/documents/audio/hdatools/codec_dump.txt
+
+Codec: Conexant CX8200   Address: 0   DevID: 351346696 (0x14f12008)
+
+   Jack   Color  Description                  Node     PinDefault             Original Verbs
+--------------------------------------------------------------------------------------------------------
+    1/8   Black  HP Out at Ext Right         22 0x16   0x04211040   01671c40 01671d10 01671e21 01671f04
+ Analog Unknown  Speaker at Int Rear         23 0x17   0x91170110   01771c10 01771d01 01771e17 01771f91
+Unknown Unknown  Other at Ext N/A            24 0x18   0x40f001f0   01871cf0 01871d01 01871ef0 01871f40
+    1/8   Black  Mic at Ext Right            25 0x19   0x04a11030   01971c30 01971d10 01971ea1 01971f04
+Digital Unknown  Mic at Int Top              26 0x1a   0x95a60120   01a71c20 01a71d01 01a71ea6 01a71f95
+Unknown Unknown  Other at Ext N/A            29 0x1d   0x40f001f0   01d71cf0 01d71d01 01d71ef0 01d71f40
+Unknown Unknown  Other at Ext N/A            30 0x1e   0x40f001f0   01e71cf0 01e71d01 01e71ef0 01e71f40
+Unknown Unknown  Other at Ext N/A            31 0x1f   0x40f001f0   01f71cf0 01f71d01 01f71ef0 01f71f40
+Unknown Unknown  Other at Ext N/A            33 0x21   0x40f001f0   02171cf0 02171d01 02171ef0 02171f40
+Unknown Unknown  Other at Ext N/A            34 0x22   0x40f001f0   02271cf0 02271d01 02271ef0 02271f40
+--------------------------------------------------------------------------------------------------------
+
+
+   Jack   Color  Description                  Node     PinDefault             Modified Verbs
+--------------------------------------------------------------------------------------------------------
+    1/8   Black  HP Out at Ext Right         22 0x16   0x04211040   01671c40 01671d10 01671e21 01671f00
+ Analog Unknown  Speaker at Int Rear         23 0x17   0x91170110   01771c10 01771d00 01771e17 01771f91
+Unknown Unknown  Other at Ext N/A            24 0x18   0x40f001f0   01871cf0 01871d00 01871ef0 01871f40
+    1/8   Black  Mic at Ext Right            25 0x19   0x04a11030   01971c30 01971d10 01971ea1 01971f00
+Digital Unknown  Mic at Int Top              26 0x1a   0x95a60120   01a71c20 01a71d00 01a71ea6 01a71f90
+Unknown Unknown  Other at Ext N/A            29 0x1d   0x40f001f0   01d71c50 01d71d00 01d71ef0 01d71f40
+Unknown Unknown  Other at Ext N/A            30 0x1e   0x40f001f0   01e71c60 01e71d00 01e71ef0 01e71f40
+Unknown Unknown  Other at Ext N/A            31 0x1f   0x40f001f0   01f71c70 01f71d00 01f71ef0 01f71f40
+Unknown Unknown  Other at Ext N/A            33 0x21   0x40f001f0   02171c80 02171d00 02171ef0 02171f40
+Unknown Unknown  Other at Ext N/A            34 0x22   0x40f001f0   02271c90 02271d00 02271ef0 02271f40
+--------------------------------------------------------------------------------------------------------
+
+Modified Verbs in One Line: 01671c40 01671d10 01671e21 01671f00 01771c10 01771d00 01771e17 01771f91 01871cf0 01871d00 01871ef0 01871f40 01971c30 01971d10 01971ea1 01971f00 01a71c20 01a71d00 01a71ea6 01a71f90 01d71c50 01d71d00 01d71ef0 01d71f40 01e71c60 01e71d00 01e71ef0 01e71f40 01f71c70 01f71d00 01f71ef0 01f71f40 02171c80 02171d00 02171ef0 02171f40 02271c90 02271d00 02271ef0 02271f40
+--------------------------------------------------------------------------------------------------------
+
+

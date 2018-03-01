@@ -19,6 +19,8 @@
 			<false/>
 			<key>Fixes</key>
 			<dict>
+				<key>AddDTGP</key>
+				<false/>
 				<key>FixHPET</key>
 				<true/>
 				<key>FixIPIC</key>
@@ -1153,15 +1155,15 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>darkwake=0 nv_disable=1 kext-dev-mode=1 -disablegfxfirmware -lilubeta -igdvmtbeta -igfxbeta abm_firstpolldelay=16000</string>
+		<string>darkwake=0 kext-dev-mode=1 -disablegfxfirmware -lilubeta -igdvmtbeta -igfxbeta abm_firstpolldelay=16000</string>
 		<key>CustomLogo</key>
 		<false/>
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
-		<string>Macintosh HD</string>
+		<string>LastBootedVolume</string>
 		<key>NeverHibernate</key>
-		<true/>
+		<false/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
@@ -1183,49 +1185,6 @@
 	</dict>
 	<key>Devices</key>
 	<dict>
-		<key>AddProperties</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>Inject "name" as (data)"#display" to disable graphics drivers on NVidia</string>
-				<key>Device</key>
-				<string>NVidia</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>name</string>
-				<key>Value</key>
-				<data>
-				I2Rpc3BsYXkA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Inject "IOName" as "#display" to disable graphics drivers on NVidia</string>
-				<key>Device</key>
-				<string>NVidia</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>IOName</string>
-				<key>Value</key>
-				<string>#display</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Inject bogus class-code to prevent graphics drivers loading for NVidia</string>
-				<key>Device</key>
-				<string>NVidia</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Key</key>
-				<string>class-code</string>
-				<key>Value</key>
-				<data>
-				/////w==
-				</data>
-			</dict>
-		</array>
 		<key>FakeID</key>
 		<dict>
 			<key>#Kaby Lake-Comment</key>
@@ -1239,6 +1198,8 @@
 			<true/>
 			<key>FixOwnership</key>
 			<true/>
+			<key>HighCurrent</key>
+			<true/>
 			<key>Inject</key>
 			<true/>
 		</dict>
@@ -1251,7 +1212,6 @@
 	<dict>
 		<key>Hide</key>
 		<array>
-			<string>Recovery</string>
 			<string>Preboot</string>
 		</array>
 		<key>Mouse</key>
@@ -1277,7 +1237,7 @@
 			<true/>
 		</dict>
 		<key>Theme</key>
-		<string>bootcamp</string>
+		<string>maverickslogin</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -1292,6 +1252,8 @@
 		</dict>
 		<key>NvidiaSingle</key>
 		<false/>
+		<key>ig-platform-id</key>
+		<string>0x59160000</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -1336,36 +1298,94 @@
 		<array>
 			<dict>
 				<key>Comment</key>
-				<string>0x591b0000, 32MB BIOS, 19MB framebuffer 9MB cursor bytes (credit RehabMan)</string>
+				<string>亮度补丁 for AppleBacklightInjector.kext</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
-				AABgAgAAUAE=
+				RiV1VCUwNHgA
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<string>com.apple.driver.AppleBacklight</string>
 				<key>Replace</key>
 				<data>
-				AAAwAQAAkAA=
+				RiV1VHh4eHgA
 				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>0x591b0000, 0105 instead of 0306, HDMI</string>
+				<string>10.13+-第二阶段花屏补丁</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				AQAAdSI=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Name</key>
+				<string>IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>
+				AQAA6yI=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>volume slider sync, by wern</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				a3Bzaes=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				Y2ltaes=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>10.11+-BT4LE-Handoff-Hotspot-lisai9093</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				SIX/dEdIiwc=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>IOBluetoothFamily</string>
+				<key>Replace</key>
+				<data>
+				Qb4PAAAA60Q=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable 5G for Brcm4360</string>
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
 				<data>
-				AgQKAAAIAACHAQAAAwYKAAAEAACHAQAA/wAAAAEAAAAg
-				AAAA
+				QYP8/3QsSA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<string>AirPortBrcm4360</string>
 				<key>Replace</key>
 				<data>
-				AQUKAAAIAACHAQAAAgQKAAAIAACHAQAA/wAAAAEAAAAg
-				AAAA
+				ZscGVVPrKw==
 				</data>
 			</dict>
 			<dict>
@@ -1377,6 +1397,8 @@
 				<data>
 				ixnUEQ==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleHDA</string>
 				<key>Replace</key>
@@ -1393,6 +1415,8 @@
 				<data>
 				AEFQUExFIFNTRAA=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.iokit.IOAHCIBlockStorage</string>
 				<key>Replace</key>
@@ -1409,6 +1433,8 @@
 				<data>
 				SIX/dEdIiwc=
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.11+</string>
 				<key>Name</key>
@@ -1427,6 +1453,8 @@
 				<data>
 				g72M/v//EA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12</string>
 				<key>Name</key>
@@ -1445,6 +1473,8 @@
 				<data>
 				g72M/v//EA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.12</string>
 				<key>Name</key>
@@ -1463,6 +1493,8 @@
 				<data>
 				g32MEA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>MatchOS</key>
 				<string>10.13</string>
 				<key>Name</key>
@@ -1474,74 +1506,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>亮度补丁 for AppleBacklightInjector.kext</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				RiV1VCUwNHgA
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleBacklight</string>
-				<key>Replace</key>
-				<data>
-				RiV1VHh4eHgA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HD520_530_540, 0x19160000/etc, </string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AAAgAgAAUAE=
-				</data>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelSKLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AAAwAQAAkAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>10.13+-第二阶段花屏补丁</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				AQAAdSI=
-				</data>
-				<key>MatchOS</key>
-				<string>10.13.x</string>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6yI=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Boot fix</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQAAdSU=
-				</data>
-				<key>MatchOS</key>
-				<string>10.12.x</string>
-				<key>Name</key>
-				<string>com.apple.iokit.IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6yU=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Thunderbolt 3 fix</string>
 				<key>Disabled</key>
 				<true/>
@@ -1549,6 +1513,8 @@
 				<data>
 				VUiJ5UFXQVZBVUFUU0iB7CgB
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.IOThunderboltFamily</string>
 				<key>Replace</key>
@@ -1572,19 +1538,21 @@
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>08/08/2017</string>
+		<string>12/14/2017</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP142.88Z.0167.B00.1708080034</string>
+		<string>MBP141.88Z.0169.B00.1712141501</string>
 		<key>Board-ID</key>
-		<string>Mac-CAD6701F7CEA0921</string>
+		<string>Mac-B4831CEBD52A0C4C</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string>C02719802QXFF4PAD</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
-		<string>MacBookPro14,2</string>
+		<string>1.0</string>
 		<key>ChassisAssetTag</key>
 		<string>MacBook-Aluminum</string>
 		<key>ChassisManufacturer</key>
@@ -1594,7 +1562,7 @@
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>FirmwareFeatures</key>
-		<string>0xFC0FE136</string>
+		<string>0xFC0FE137</string>
 		<key>FirmwareFeaturesMask</key>
 		<string>0xFF1FFF3F</string>
 		<key>LocationInChassis</key>
@@ -1606,9 +1574,9 @@
 		<key>PlatformFeature</key>
 		<string>0x1A</string>
 		<key>ProductName</key>
-		<string>MacBookPro14,2</string>
+		<string>MacBookPro14,1</string>
 		<key>SerialNumber</key>
-		<string>C02TQ3PWHV2N</string>
+		<string>C02TQ5OMHV29</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
