@@ -1155,7 +1155,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-igfxdump -lilubetaall debug=0x100 -xcpm -v darkwake=8</string>
+		<string>-v dart=0 -xcpm nv_disable=1 kext-dev-mode=1</string>
 		<key>CustomLogo</key>
 		<false/>
 		<key>Debug</key>
@@ -1402,6 +1402,26 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.14 (credit DalianSky)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				dkZI/wX8awg=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.14,10.14.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				60ZI/wX8awg=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>亮度补丁 for AppleBacklightInjector.kext</string>
 				<key>Disabled</key>
 				<false/>
@@ -1438,6 +1458,24 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>BCM94352 - 5G - #a</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				QYP8/3QsSA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AirPort.Brcm4360</string>
+				<key>Replace</key>
+				<data>
+				ZscGI2HrKw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>10.11+-BT4LE-Handoff-Hotspot-lisai9093</string>
 				<key>Disabled</key>
 				<true/>
@@ -1448,30 +1486,10 @@
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
-				<string>IOBluetoothFamily</string>
+				<string>com.apple.iokit.IOBluetoothFamily</string>
 				<key>Replace</key>
 				<data>
 				Qb4PAAAA60Q=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Disable minStolenSize less or equal fStolenMemorySize assertion, 10.14 (credit DalianSky)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dkZI/wX8awg=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>MatchOS</key>
-				<string>10.14,10.14.x</string>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelKBLGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				60ZI/wX8awg=
 				</data>
 			</dict>
 		</array>
@@ -1482,25 +1500,21 @@
 		<string>0x28</string>
 		<key>CsrActiveConfig</key>
 		<string>0x67</string>
-		<key>ROM</key>
-		<data>
-		r4A9Kb61
-		</data>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>12/14/2017</string>
+		<string>09/17/2018</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>MBP141.88Z.0169.B00.1712141501</string>
+		<string>MBP141.88Z.F000.B00.1809171524</string>
 		<key>Board-ID</key>
 		<string>Mac-B4831CEBD52A0C4C</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02712310J9FF4M8C</string>
+		<string>C02705310J9HWVPJA</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -1511,6 +1525,8 @@
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
 		<string>0x09</string>
+		<key>EfiVersion</key>
+		<string>184.0.0.0.0</string>
 		<key>Family</key>
 		<string>MacBook Pro</string>
 		<key>FirmwareFeatures</key>
@@ -1527,17 +1543,13 @@
 		<string>0x1A</string>
 		<key>ProductName</key>
 		<string>MacBookPro14,1</string>
-		<key>SerialNumber</key>
-		<string>C02TG21KHV29</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
 		<key>InjectKexts</key>
-		<string>Yes</string>
-		<key>InjectSystemID</key>
-		<true/>
+		<string>Detect</string>
 	</dict>
 </dict>
 </plist>
